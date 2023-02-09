@@ -1,5 +1,27 @@
 import {  Button, Grid, CardMedia, CardContent, Typography, Card, Box } from "@mui/material";
-function ComboMenu(){
+import { useDispatch} from "react-redux";
+import { orderMenuSizeChange } from "../../action/order.action";
+function ComboMenu({ prosComboSize, prosSetComboSize}){
+    //B3: khai báo dispatch để đẩy action lên reducer
+    const dispatch = useDispatch();
+    //B1: Nhận giá trị của state trong giai đoạn mounting
+    
+    //B2: Khai báo action
+    const onClickComboSizeS = (event) => {
+        prosSetComboSize("S");
+        dispatch(orderMenuSizeChange("S"))
+        //console.log(prosComboSize);
+    }
+    const onClickComboSizeM = () => {
+        prosSetComboSize("M");
+        dispatch(orderMenuSizeChange("M"))
+        //console.log(prosComboSize);
+    }
+    const onClickComboSizeL = () => {
+        prosSetComboSize("L");
+        dispatch(orderMenuSizeChange("L"))
+        //console.log(prosComboSize);
+    }
     return(
         <Grid container sx={{mt: 6}}>
             {/* Header combo */}
@@ -48,7 +70,7 @@ function ComboMenu(){
                                     display: {md:"flex", xs: "flex", justifyContent:"center", alignItems:"center"},
                                     borderTop: "1px solid  #E2E2E2"
                                 }}>
-                                    <Button variant="container" sx={{width: "300px", height:"33px", backgroundColor:"#FFC107"}} disableElevation>Chọn</Button>
+                                    <Button onClick={onClickComboSizeS} variant="container" sx={{width: "300px", height:"33px", backgroundColor:"#FFC107"}} disableElevation>Chọn</Button>
                                 </Box>
                                 </CardContent>
                             </CardMedia>
@@ -94,7 +116,7 @@ function ComboMenu(){
                                         display: {md:"flex" , xs: "flex", justifyContent:"center", alignItems:"center"},
                                         borderTop: "1px solid  #E2E2E2"
                                     }}>
-                                        <Button variant="container" sx={{width: "300px", height:"33px", backgroundColor:"#FFC107"}} disableElevation>Chọn</Button>
+                                        <Button onClick={onClickComboSizeM} variant="container" sx={{width: "300px", height:"33px", backgroundColor:"#FFC107"}} disableElevation>Chọn</Button>
                                     </Box>
                                 </CardContent>
                             </CardMedia>
@@ -140,7 +162,7 @@ function ComboMenu(){
                                         display: {md:"flex" , xs: "flex", justifyContent:"center", alignItems:"center"},
                                         borderTop: "1px solid  #E2E2E2"
                                     }}>
-                                        <Button variant="container" sx={{width: "300px", height:"33px", backgroundColor:"#FFC107"}} disableElevation>Chọn</Button>
+                                        <Button onClick={onClickComboSizeL} variant="container" sx={{width: "300px", height:"33px", backgroundColor:"#FFC107"}} disableElevation>Chọn</Button>
                                     </Box>
                                 </CardContent>
                             </CardMedia>

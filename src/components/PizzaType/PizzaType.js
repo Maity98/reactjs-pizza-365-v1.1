@@ -1,7 +1,26 @@
 import {  Button, Grid, CardMedia, CardContent, Typography, Card, Box } from "@mui/material";
-
-
-function PizzaType(){
+import { useDispatch } from "react-redux";
+import { orderPizzaTypeChange } from "../../action/order.action";
+function PizzaType({prosPizzaType, prosSetPizzaType}){
+    //B3: khai baos dispatch
+    const dispatch = useDispatch();
+    //B1: Nhận  giá trị khởi tạo state trong giai đoạn mounting
+    //B3: khai báo những action
+    const onClickPizzaOceanMania = () => {
+        prosSetPizzaType("PIZZA HẢI SẢN");
+        dispatch(orderPizzaTypeChange("PIZZA HẢI SẢN"));
+        //console.log(prosPizzaType);
+    }
+    const onClickPizzaHawaiian = () => {
+        prosSetPizzaType("PIZZA HAWAII");
+        dispatch(orderPizzaTypeChange("PIZZA HAWAII"));
+        //console.log(prosPizzaType);
+    }
+    const onClickPizzaChickenBacon = () => {
+        prosSetPizzaType("PIZZA THITNUONG");
+        dispatch(orderPizzaTypeChange("PIZZA THITNUONG"));
+        //console.log(prosPizzaType);
+    }
     return(
         <Grid container sx={{mt: 6}}>
             <Grid item  md={12} xs={12} sx={{mt: 2, mb:2, color: "orange",  display: { xs:"flex", flexDirection:"column", alignItems: "center" }}}>
@@ -32,7 +51,7 @@ function PizzaType(){
                                     height: "50px",
                                     display: {md:"flex", justifyContent:"center", alignItems:"center"},
                                     }}>
-                                    <Button variant="container" sx={{width: "320px", height:"33px", backgroundColor:"#FFC107"}} disableElevation>Chọn</Button>
+                                    <Button onClick={onClickPizzaOceanMania} variant="container" sx={{width: "320px", height:"33px", backgroundColor:"#FFC107"}} disableElevation>Chọn</Button>
                                     </Box>
                             </CardContent>
                         </Card>
@@ -62,7 +81,7 @@ function PizzaType(){
                                 height: "50px",
                                 display: {md:"flex", justifyContent:"center", alignItems:"center"},
                                 }}>
-                                <Button variant="container" sx={{width: "320px", height:"33px", backgroundColor:"#FFC107"}} disableElevation>Chọn</Button>
+                                <Button onClick={onClickPizzaHawaiian} variant="container" sx={{width: "320px", height:"33px", backgroundColor:"#FFC107"}} disableElevation>Chọn</Button>
                                 </Box>
                             </CardContent>
                         
@@ -93,7 +112,7 @@ function PizzaType(){
                                 height: "50px",
                                 display: {md:"flex", justifyContent:"center", alignItems:"center"},
                                 }}>
-                                <Button variant="container" sx={{width: "320px", height:"33px", backgroundColor:"#FFC107"}} disableElevation>Chọn</Button>
+                                <Button onClick={onClickPizzaChickenBacon} variant="container" sx={{width: "320px", height:"33px", backgroundColor:"#FFC107"}} disableElevation>Chọn</Button>
                                 </Box>
                             </CardContent>
                         </Card>
